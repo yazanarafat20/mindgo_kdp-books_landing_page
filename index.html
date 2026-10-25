@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Clarity Journal — Mind Go</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Manrope (800, 700, 600, 500, 400) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#063061',
+                        'navy-dark': '#031b38',
+                        gold: '#E49F2B',
+                        'gold-hover': '#cb891e',
+                        cream: '#F5F0E6',
+                        'cream-light': '#FAF7F2',
+                        'cream-card': '#EFEADF',
+                        'charcoal': '#1C2430'
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(6, 48, 97, 0.12)',
+                        'card': '0 10px 30px -5px rgba(6, 48, 97, 0.08)',
+                        'glow': '0 0 25px rgba(228, 159, 43, 0.25)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #F5F0E6;
+            color: #1C2430;
+            overflow-x: hidden;
+        }
+
+        /* Image Optimization & Blending Helpers */
+        .blend-dark {
+            mix-blend-mode: screen;
+        }
+        .blend-multiply {
+            mix-blend-mode: multiply;
+        }
+        
+        .img-card {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+        .img-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Clean Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F0E6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #063061;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="antialiased text-charcoal selection:bg-gold selection:text-navy">
+
+    <!-- 1. NAVIGATION BAR -->
+<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-navy/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Brand Logo & Tagline -->
+        <a href="#" class="flex items-center gap-4">
+            <!-- الشعار المحدث باستبدال المستطيل -->
+            <img src="MIND GO Logo (3).png" 
+                 alt="Mind Go Logo" 
+                 class="h-12 w-auto object-contain rounded-md"
+                 onerror="this.onerror=null; this.src='https://placehold.co/180x60/063061/E49F2B?text=MIND+GO';">
+            
+            <div class="flex flex-col">
+                <span class="text-xl font-extrabold tracking-wider text-navy leading-none">MIND GO</span>
+                <span class="text-[10px] font-semibold text-gold tracking-widest uppercase mt-1">Less Noise. More Clarity. Real Progress.</span>
+            </div>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-navy/80">
+            <a href="#about" class="hover:text-gold transition-colors">The Concept</a>
+            <a href="#contents" class="hover:text-gold transition-colors">Table of Contents</a>
+            <a href="#inside" class="hover:text-gold transition-colors">Inside the Journal</a>
+            <a href="#benefits" class="hover:text-gold transition-colors">Benefits</a>
+            <a href="#audience" class="hover:text-gold transition-colors">Who It's For</a>
+        </nav>
+
+        <!-- Primary CTA Button -->
+        <a href="#explore" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-navy text-white font-bold text-sm border border-gold/40 hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">
+            Explore the Book
+        </a>
+    </div>
+</header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative py-12 lg:py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy/10 text-navy font-bold text-xs uppercase tracking-widest border border-navy/15">
+                        <span class="w-2 h-2 rounded-full bg-gold"></span>
+                        A Practical Guided Journal Prototype
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy leading-tight tracking-tight">
+                        The Clarity Journal
+                    </h1>
+
+                    <p class="text-xl sm:text-2xl font-bold text-gold leading-snug">
+                        A Practical Guide to Thinking Clearly, Learning Better, and Taking Action.
+                    </p>
+
+                    <p class="text-base sm:text-lg text-slate-700 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-normal">
+                        Helping people move beyond information consumption toward genuine understanding, thoughtful reflection, and practical application.
+                    </p>
+
+                    <!-- Three Core Principles Pills -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                        <span class="px-4 py-2 rounded-lg bg-white border border-navy/15 text-navy font-bold text-xs tracking-wide shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-gold"></i> 1. Think Clearly
+                        </span>
+                        <span class="px-4 py-2 rounded-lg bg-white border border-navy/15 text-navy font-bold text-xs tracking-wide shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-gold"></i> 2. Understand Deeply
+                        </span>
+                        <span class="px-4 py-2 rounded-lg bg-white border border-navy/15 text-navy font-bold text-xs tracking-wide shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-gold"></i> 3. Take Action
+                        </span>
+                    </div>
+
+                    <!-- Call To Action Group -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#explore" class="w-full sm:w-auto px-8 py-4 rounded-lg bg-navy text-white font-bold text-base border border-gold hover:bg-gold hover:text-navy transition-all shadow-lg text-center flex items-center justify-center gap-3 group">
+                            <span>Explore the Book</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#contents" class="w-full sm:w-auto px-8 py-4 rounded-lg bg-white text-navy font-bold text-base border border-navy/20 hover:bg-cream-card transition-all text-center">
+                            View Proposed Outline
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image Asset -->
+                <div class="lg:col-span-5 flex justify-center items-center">
+                    <div class="relative w-full max-w-md lg:max-w-none">
+                        <div class="absolute -inset-2 bg-gold/20 rounded-2xl blur-xl"></div>
+                        <img src="Hero Product Mockup.jpg" 
+                             alt="The Clarity Journal Hero Product Mockup" 
+                             class="relative w-full h-auto rounded-2xl shadow-2xl object-contain border border-white/40 img-card"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/063061/FFFFFF?text=Hero+Product+Mockup';">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BRAND POSITIONING & THE PROBLEM -->
+    <section id="about" class="py-16 bg-white border-y border-navy/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-gold font-bold text-xs uppercase tracking-widest">Brand Philosophy</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Less Noise. More Clarity. Real Progress.</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Mind Go is a practical knowledge and learning brand that helps people turn information into understanding and understanding into action.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                
+                <!-- The Problem -->
+                <div class="p-8 rounded-2xl bg-cream border border-navy/10 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-navy text-gold flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy">The Problem</h3>
+                    <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                        People consume enormous amounts of information through videos, articles, books, and social media. However, consuming information does not necessarily lead to understanding, retention, or meaningful action.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600 pt-2">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-minus text-gold"></i> Information overload & continuous noise</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-minus text-gold"></i> Scattered thoughts & passive learning</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-minus text-gold"></i> Difficulty applying useful knowledge</li>
+                    </ul>
+                </div>
+
+                <!-- The Solution -->
+                <div class="p-8 rounded-2xl bg-navy text-white space-y-4 border border-gold/30 shadow-xl">
+                    <div class="w-12 h-12 rounded-xl bg-gold text-navy flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">The Proposed Solution</h3>
+                    <p class="text-slate-200 leading-relaxed text-sm sm:text-base">
+                        <strong class="text-gold">The Clarity Journal</strong> is envisioned as a practical guided journal that helps readers slow down, examine ideas, reflect on what they learn, and identify meaningful next steps.
+                    </p>
+                    <div class="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                        <div class="p-3 rounded bg-white/10 border border-white/10">
+                            <span class="block text-gold font-bold text-xs uppercase">Step 01</span>
+                            <span class="text-xs font-semibold">Think Clearly</span>
+                        </div>
+                        <div class="p-3 rounded bg-white/10 border border-white/10">
+                            <span class="block text-gold font-bold text-xs uppercase">Step 02</span>
+                            <span class="text-xs font-semibold">Understand Deeply</span>
+                        </div>
+                        <div class="p-3 rounded bg-white/10 border border-white/10">
+                            <span class="block text-gold font-bold text-xs uppercase">Step 03</span>
+                            <span class="text-xs font-semibold">Take Action</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TABLE OF CONTENTS / BOOK OVERVIEW -->
+    <section id="contents" class="py-16 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-gold font-bold text-xs uppercase tracking-widest">Conceptual Structure</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Proposed Outline & Framework</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    A structured journey moving from chaotic inputs to deliberate daily execution.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Part 1 -->
+                <div class="bg-white p-6 sm:p-8 rounded-xl border border-navy/10 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-navy/10 pb-3">
+                        <span class="text-xs font-extrabold text-gold uppercase tracking-wider">Part 01</span>
+                        <i class="fa-solid fa-filter text-navy/40"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy">Understanding Information</h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Information Overload and Attention</li>
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> The Difference Between Knowing and Understanding</li>
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Identifying What Really Matters</li>
+                    </ul>
+                </div>
+
+                <!-- Part 2 -->
+                <div class="bg-white p-6 sm:p-8 rounded-xl border border-navy/10 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-navy/10 pb-3">
+                        <span class="text-xs font-extrabold text-gold uppercase tracking-wider">Part 02</span>
+                        <i class="fa-solid fa-brain text-navy/40"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy">Thinking Clearly</h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Asking Better Questions</li>
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Examining Ideas and Assumptions</li>
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Connecting Information and Meaning</li>
+                    </ul>
+                </div>
+
+                <!-- Part 3 -->
+                <div class="bg-white p-6 sm:p-8 rounded-xl border border-navy/10 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-navy/10 pb-3">
+                        <span class="text-xs font-extrabold text-gold uppercase tracking-wider">Part 03</span>
+                        <i class="fa-solid fa-lightbulb text-navy/40"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy">Learning with Intention</h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Reflecting on What You Learn</li>
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Identifying Key Takeaways</li>
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Turning Knowledge into Understanding</li>
+                    </ul>
+                </div>
+
+                <!-- Part 4 -->
+                <div class="bg-white p-6 sm:p-8 rounded-xl border border-navy/10 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-navy/10 pb-3">
+                        <span class="text-xs font-extrabold text-gold uppercase tracking-wider">Part 04</span>
+                        <i class="fa-solid fa-bullseye text-navy/40"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy">Moving from Understanding to Action</h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Choosing One Useful Idea</li>
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Creating a Practical Next Step</li>
+                        <li class="flex items-start gap-2.5"><span class="text-gold font-bold">•</span> Reviewing Progress and Lessons Learned</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. INSIDE THE BOOK (INTERIOR TEASERS) -->
+    <section id="inside" class="py-16 bg-white border-y border-navy/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold font-bold text-xs uppercase tracking-widest">Interior Teaser</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Designed for Reflection & Action</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Interior pages demonstrate practical reflection prompts, structured exercises, and action-planning layouts.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Image Asset: Interior Teasers Look Inside.jpg -->
+                <div class="lg:col-span-7 flex justify-center">
+                    <div class="p-3 bg-cream rounded-2xl border border-navy/10 shadow-xl max-w-xl w-full">
+                        <img src="Interior Teasers  Look Inside.jpg" 
+                             alt="Interior Teasers Look Inside" 
+                             class="w-full h-auto rounded-xl object-contain img-card"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x700/F5F0E6/063061?text=Interior+Teasers+Look+Inside';">
+                    </div>
+                </div>
+
+                <!-- Secondary Presentation Image Asset -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-cream p-6 rounded-2xl border border-navy/10 space-y-4">
+                        <span class="text-xs font-bold text-navy uppercase tracking-widest">Multi-Device & Format Concept</span>
+                        <h3 class="text-xl font-bold text-navy">Read & Reflect Anywhere</h3>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            Formally designed to support both tactile paper journaling and digital reader formats.
+                        </p>
+                        
+                        <!-- Image Asset -->
+                        <div class="pt-2">
+                            <img src="Kindle وTablet وSmartphone.jpg" 
+                                 alt="Kindle, Tablet, and Smartphone Formats" 
+                                 class="w-full h-auto rounded-xl shadow-md border border-white/60 object-contain img-card"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/500x350/063061/FFFFFF?text=Multi-Device+Formats';">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. KEY BENEFITS & FEATURE ICONS GRID -->
+<section id="benefits" class="py-16 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-gold font-bold text-xs uppercase tracking-widest">Core Advantages</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Why The Clarity Journal Works</h2>
+            <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                Built to cut through information overload and guide you toward clear, practical progress.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Image Asset: New 3D Mockup Image -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="p-4 bg-white rounded-2xl border border-navy/10 shadow-lg max-w-sm w-full text-center">
+                    <img src="Official Mind Go Visual Feature Symbols.png" 
+                         alt="Mind Go Visual Feature Symbols" 
+                         class="w-full h-auto rounded-xl object-cover img-card"
+                         onerror="this.onerror=null; this.src='https://placehold.co/500x500/063061/FFFFFF?text=Feature+Symbols';">
+                    <span class="block pt-3 text-xs font-semibold text-slate-500">Official Mind Go Visual Feature Symbols</span>
+                </div>
+            </div>
+
+            <!-- Feature List -->
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <div class="bg-white p-5 rounded-xl border border-navy/10 shadow-sm space-y-2">
+                    <i class="fa-solid fa-filter text-gold text-xl"></i>
+                    <h4 class="font-bold text-navy text-base">Filter Noise</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Distill chaotic daily streams of information into clear, actionable focal points.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-navy/10 shadow-sm space-y-2">
+                    <i class="fa-solid fa-feather-pointed text-gold text-xl"></i>
+                    <h4 class="font-bold text-navy text-base">Thoughtful Reflection</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Prompts designed to examine assumptions and connect ideas deeply.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-navy/10 shadow-sm space-y-2">
+                    <i class="fa-solid fa-list-check text-gold text-xl"></i>
+                    <h4 class="font-bold text-navy text-base">Practical Next Steps</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Turn insights directly into structured, achievable daily actions.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-navy/10 shadow-sm space-y-2">
+                    <i class="fa-solid fa-arrows-to-eye text-gold text-xl"></i>
+                    <h4 class="font-bold text-navy text-base">Intentional Learning</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Move from passive bookmarking to active knowledge retention and practice.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- 7. TARGET AUDIENCE (WHO IT'S FOR) -->
+    <section id="audience" class="py-16 bg-white border-y border-navy/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold font-bold text-xs uppercase tracking-widest">Target Audience</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">Who It's For</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Designed for international readers and curious minds who value practical tools over generic motivational hype.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="p-6 bg-cream rounded-xl border border-navy/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-navy text-gold flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-bold text-navy text-lg">Students & Lifelong Learners</h3>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Those who want to learn more effectively from the books, articles, and courses they consume daily.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-cream rounded-xl border border-navy/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-navy text-gold flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold text-navy text-lg">Knowledge Enthusiasts</h3>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Individuals seeking to think more clearly, organize scattered thoughts, and examine core assumptions.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-cream rounded-xl border border-navy/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-navy text-gold flex items-center justify-center font-bold text-base">
+                        <i class="fa-solid fa-person-walking-arrow-right"></i>
+                    </div>
+                    <h3 class="font-bold text-navy text-lg">Action-Oriented Thinkers</h3>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Self-development readers who want to reflect on ideas rather than simply save or forget them.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ABOUT MIND GO / AUTHOR PLACEHOLDER SECTION -->
+    <section class="py-16 bg-cream">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy rounded-2xl p-8 sm:p-10 text-white shadow-xl border border-gold/30">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Cover Image Asset -->
+                    <div class="md:col-span-4 flex justify-center">
+                        <img src="High-Resolution Book Cover.jpg" 
+                             alt="High Resolution Book Cover Artwork" 
+                             class="w-48 h-auto rounded-lg shadow-2xl border border-white/20 img-card object-contain"
+                             onerror="this.onerror=null; this.src='https://placehold.co/300x450/063061/E49F2B?text=Book+Cover+Artwork';">
+                    </div>
+
+                    <div class="md:col-span-8 space-y-4 text-center md:text-left">
+                        <div class="inline-block px-3 py-1 rounded bg-gold/20 text-gold text-xs font-bold uppercase tracking-wider">
+                            Brand & Publisher
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">About Mind Go</h2>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                            "Mind Go is a knowledge and learning brand focused on helping people move beyond information overload toward clearer thinking, deeper understanding, and meaningful progress."
+                        </p>
+                        <div class="pt-2 text-xs text-slate-400 italic">
+                            * Verified author biography and details will be updated upon published release.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TRUST & PURCHASE INTERFACE -->
+    <section id="explore" class="py-16 bg-white border-t border-navy/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            
+            <div class="space-y-3">
+                <span class="text-gold font-bold text-xs uppercase tracking-widest">Prototype Demonstration</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">Explore The Clarity Journal</h2>
+                <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
+                    This prototype demonstrates the visual and structural presentation for Mind Go's future KDP release.
+                </p>
+            </div>
+
+            <!-- Trust & Component Box -->
+            <div class="p-6 sm:p-8 bg-cream rounded-2xl border border-navy/15 space-y-6 max-w-2xl mx-auto text-left">
+                
+                <!-- Select Preferred Retailer Container -->
+                <div class="p-4 bg-white rounded-xl border border-navy/10 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-navy uppercase tracking-wider">Select Preferred Retailer</span>
+                        <span class="px-2.5 py-1 rounded-full bg-cream text-navy font-semibold text-xs border border-navy/20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold inline-block mr-1"></span> Retailer Link Placeholder
+                        </span>
+                    </div>
+                    <div class="p-3 rounded border border-dashed border-navy/30 bg-cream/30 text-center text-xs font-medium text-slate-500">
+                        [ Dynamic Amazon Product URL Slot Marker ]
+                    </div>
+                </div>
+
+                <!-- Verified Format Quality Badge -->
+                <div class="flex items-center gap-3 p-3 bg-white/60 rounded-lg text-xs font-semibold text-navy">
+                    <div class="w-7 h-7 rounded-full bg-navy text-gold flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-shield-halved text-xs"></i>
+                    </div>
+                    <span>Quality Guaranteed &bull; Verified Format Layout (Kindle / Paper / Hardcover)</span>
+                </div>
+
+                <!-- Primary CTA Button -->
+                <div class="text-center pt-2">
+                    <button type="button" class="w-full sm:w-auto px-10 py-4 rounded-lg bg-navy text-white font-bold text-base border border-gold hover:bg-gold hover:text-navy transition-all shadow-lg inline-flex items-center justify-center gap-3 cursor-pointer">
+                        <span>Explore the Book</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer class="bg-navy-dark text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <!-- Brand Logo in Footer -->
+            <div class="flex items-center gap-3">
+                <img src="MIND_GO_Logo_white.png" 
+                    alt="Mind Go Logo" 
+                    class="h-10 w-auto object-contain"
+                    onerror="this.onerror=null; this.src='https://placehold.co/150x50/063061/FFFFFF?text=MIND+GO';">
+                <span class="text-lg font-extrabold tracking-wider text-white">MIND GO</span>
+            </div>
+
+            <!-- Tagline & Copyright -->
+            <div class="text-center md:text-left text-xs text-slate-400 space-y-1">
+                <p class="font-semibold text-gold">Less Noise. More Clarity. Real Progress.</p>
+                <p>&copy; 2026 Mind Go. All rights reserved. Conceptual KDP Landing Page Prototype.</p>
+            </div>
+
+            <!-- Links -->
+            <div class="text-xs text-slate-400 flex gap-4">
+                <a href="#about" class="hover:text-gold transition-colors">Philosophy</a>
+                <a href="#contents" class="hover:text-gold transition-colors">Outline</a>
+                <a href="#inside" class="hover:text-gold transition-colors">Previews</a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
